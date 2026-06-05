@@ -1,4 +1,7 @@
-SUBJECTS = ["국어", "영어", "수학", "과탐"]
+# grades.py
+# gradebook v1.1 — 2주차 실습 완료본
+
+SUBJECTS = ["국어", "영어", "수학", "과학탐구"]
 
 
 def get_scores():
@@ -20,11 +23,13 @@ def get_scores():
 
     return scores
 
+
 def calculate_average(scores):
     """점수 딕셔너리를 받아 평균을 반환한다."""
     if not scores:
         return 0.0
     return sum(scores.values()) / len(scores)
+
 
 def print_result(scores, average):
     """점수와 평균을 보기 좋게 출력한다."""
@@ -37,11 +42,13 @@ def print_result(scores, average):
     print(f"  {'평균':<10} {average:>6.1f}점")
     print("=" * 30)
 
+
 def find_highest_lowest(scores):
     """최고점과 최저점 과목을 반환한다."""
     highest = max(SUBJECTS, key=lambda s: scores[s])
     lowest  = min(SUBJECTS, key=lambda s: scores[s])
     return highest, lowest
+
 
 if __name__ == "__main__":
     scores = get_scores()
@@ -51,9 +58,3 @@ if __name__ == "__main__":
     highest, lowest = find_highest_lowest(scores)
     print(f"\n최고점: {highest} ({scores[highest]:.1f}점)")
     print(f"최저점: {lowest} ({scores[lowest]:.1f}점)")
-
-
-# gradebook v1.0 — 1주차 실습 완료
-
-# gradebook v1.1 — 2주차 실습 시작
-SUBJECTS = ["국어", "영어", "수학", "과학탐구"]
